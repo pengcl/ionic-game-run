@@ -1,0 +1,35 @@
+<ion-content>
+    <form [formGroup]="form" class="auth-form">
+        <div class="app-info">
+            <div class="app-logo">
+                <img src="/assets/logo_text.png">
+            </div>
+        </div>
+        <mat-form-field appearance="outline">
+            <mat-label>账号</mat-label>
+            <input formControlName="identifier" autocomplete="off" matInput required>
+            <mat-icon matPrefix>person</mat-icon>
+            <mat-error *ngIf="form.get('identifier').hasError('required')">
+                请输入您的 <strong>账号</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field [color]="'primary'" appearance="outline">
+            <mat-label>密码</mat-label>
+            <input type="password" formControlName="password" autocomplete="off" matInput required>
+            <mat-icon matPrefix>lock</mat-icon>
+            <mat-error *ngIf="form.get('password').hasError('required')">
+                请输入您的 <strong>密码</strong>
+            </mat-error>
+        </mat-form-field>
+        <button (click)="login()" [disabled]="form.invalid" type="button" mat-raised-button color="primary">登录</button>
+        <p class="actions">
+            <a class="forgot" routerLink="/pages/auth/forgot" href="javascript:;">忘记密码?</a>
+            <a style="margin: 0 7px;" class="forgot" href="javascript:;">|</a>
+            <a class="forgot" routerLink="/pages/auth/type" href="javascript:;">注册</a>
+        </p>
+        <p class="social-login">
+            <span><img src="/assets/wx.png"></span>
+            微信快捷登录
+        </p>
+    </form>
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>创建对局</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-list>
+        <ion-list-header>
+            对局信息
+        </ion-list-header>
+        <ion-item (click)="pickerShow()" detail>
+            <ion-label>金额</ion-label>
+            <ion-note>{{form.get('price').valid ? (form.get('price').value | currency:'￥') : '请选择对局金额'}}</ion-note>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-list-header>
+            人员
+        </ion-list-header>
+        <ion-item (click)="pickerShow()" detail>
+            <ion-label>金额</ion-label>
+            <ion-note>{{form.get('price').valid ? (form.get('price').value | currency:'￥') : '请选择对局金额'}}</ion-note>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-list-header>
+            买码
+        </ion-list-header>
+        <ion-item (click)="pickerShow()" detail>
+            <ion-label>金额</ion-label>
+            <ion-note>{{form.get('price').valid ? (form.get('price').value | currency:'￥') : '请选择对局金额'}}</ion-note>
+        </ion-item>
+    </ion-list>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <ion-grid class="ion-no-padding">
+            <ion-row>
+                <ion-col>
+                    <ion-button expand="full">开始</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,12 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>{{title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancel()">关闭</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <iframe width="100%" height="100%" [frameBorder]="0" [src]="url"></iframe>
+</ion-content>

@@ -1,0 +1,24 @@
+mat-form-field.mat-form-field {
+  display: block !important;
+
+  .mat-form-field-label {
+    color: inherit;
+  }
+
+  &.mat-form-field.mat-form-field-invalid {
+    &::ng-deep {
+      .mat-form-field-label {
+        color: #f44336;
+      }
+    }
+  }
+  &.mat-focused {
+    .mat-form-field-label {
+      color: inherit;
+    }
+  }
+
+  input {
+    color: inherit;
+  }
+}

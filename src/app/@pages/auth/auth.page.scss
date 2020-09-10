@@ -1,0 +1,105 @@
+ion-content {
+  --background: linear-gradient(to bottom, #5edfff, #0044f2) !important;
+
+  .auth-form {
+    width: 100%;
+    margin-top: 60px;
+
+    .app-info {
+      text-align: center;
+      margin-bottom: 15px;
+
+      .app-logo {
+        width: 50%;
+        margin: 0 auto 20px;
+      }
+      .app-title {
+        font-size: 24px;
+        text-align: left;
+        width: auto;
+        display: block;
+        margin: 0 30px;
+        color: #fff;
+        font-weight: bold;
+      }
+    }
+
+    mat-form-field {
+      margin: auto 30px;
+      color: #fff;
+
+      &::ng-deep {
+        .mat-form-field-outline-start, .mat-form-field-outline-gap, .mat-form-field-outline-end {
+          border-color: #fff;
+        }
+      }
+
+      &.mat-form-field-should-float {
+        &::ng-deep {
+          .mat-form-field-outline-gap {
+            border-top-color: transparent !important;
+          }
+        }
+      }
+
+      input {
+        color: inherit;
+      }
+    }
+
+    .actions {
+      margin: 30px 30px 0;
+      font-size: 14px;
+      overflow: hidden;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+
+        &.register {
+          float: left;
+        }
+
+        &.forgot {
+          float: right;
+        }
+      }
+    }
+
+    button {
+      width: calc(100% - 60px);
+      display: block;
+      margin: 30px 30px 0;
+      height: 50px;
+      font-size: 18px;
+    }
+    .mat-fab.mat-primary, .mat-flat-button.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary {
+      background: linear-gradient(to top, #dc8e1f, #f7e7ac) !important;
+
+      &[disabled] {
+        opacity: 0.8;
+      }
+    }
+
+    .social-login {
+      position: relative;
+      margin-top: 20px;
+      text-align: center;
+      padding-top: 40px;
+      color: #fff;
+
+      span {
+        display: block;
+        height: 32px;
+        width: 32px;
+        margin: 0 auto 10px;
+
+        img {
+          display: block;
+          width: auto;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

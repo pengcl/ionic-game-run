@@ -1,0 +1,36 @@
+<ion-content>
+    <form [formGroup]="form" class="auth-form">
+        <div class="app-info">
+            <div class="app-title">
+                注册账号<br>
+                寻找身边的家园
+            </div>
+        </div>
+        <mat-form-field appearance="outline">
+            <mat-label>姓名</mat-label>
+            <input type="text" formControlName="name" autocomplete="off" matInput required>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>手机</mat-label>
+            <input type="text" formControlName="mobile" autocomplete="off" matInput required>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>密码</mat-label>
+            <input type="password" formControlName="password" autocomplete="off" matInput required>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>邮箱</mat-label>
+            <input type="text" formControlName="email" autocomplete="off" matInput required>
+        </mat-form-field>
+        <!--<mat-form-field appearance="outline">
+            <mat-label>城市</mat-label>
+            <input autocomplete="off" formControlName="password" matInput>
+        </mat-form-field>-->
+        <!--<mat-form-field appearance="outline">
+            <mat-label>小区</mat-label>
+            <input autocomplete="off" formControlName="password" matInput>
+        </mat-form-field>-->
+        <button (click)="register()" type="button" [disabled]="form.invalid" mat-raised-button color="primary">注册</button>
+        <p class="actions"><a class="register" routerLink="/pages/auth/login" href="javascript:;">返回登录</a></p>
+    </form>
+</ion-content>
