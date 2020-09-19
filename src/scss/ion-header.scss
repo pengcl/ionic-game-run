@@ -1,0 +1,21 @@
+ion-header {
+  ion-toolbar {
+    --background: linear-gradient(-90deg, #3C9AD7, #17D1FE);
+    --color: #fff;
+    ion-buttons {
+      ion-button, ion-back-button, ion-menu-button {
+        --opacity: 1;
+        --color: inherit;
+      }
+    }
+
+    ion-title {
+      --color: inherit;
+      font-weight: bold;
+    }
+
+    &:last-of-type {
+      --border-width: 0 !important
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>第 {{game.no + 1}} 局</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()"><ion-icon name="close-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <form>
+    <ion-list>
+      <ion-item [disabled]="!validators() && !gamer.type" (click)="pickerShow(gamer)" *ngFor="let gamer of game.gamers;let i = index" [lines]="i === game.gamers.length - 1 ? 'none' : ''" detail>
+        <ion-label>
+          <span>{{gamer.name}}</span>
+          <ion-badge [color]="gamer.type ? 'primary' : 'warning'">{{gamer.type ? '玩家' : '买码'}}</ion-badge>
+          <ion-badge *ngIf="gamer.surplus !== null && gamer.surplus !== undefined" [color]="gamer.surplus === 0 ? 'success' : 'danger'">{{gamer.surplus === 0 ? '胜' : '负'}}</ion-badge>
+          <ion-badge *ngIf="gamer.surplus === 16" color="dark">全关</ion-badge>
+          <ion-badge *ngIf="gamer.periphery || gamer.player" [color]="gamer.type ? 'warning' : 'primary'">{{gamer.type ? gamer.periphery : gamer.player}}</ion-badge>
+        </ion-label>
+        <ion-note>{{(gamer.surplus === null || gamer.surplus === undefined) ? '请填写对局成绩' : '剩牌：' + gamer.surplus + '，炸弹：' + gamer.bombs}}</ion-note>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button [disabled]="!validators()" (click)="submit()" color="primary" expand="full">确定</ion-button>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,113 @@
+:host {
+  ion-header {
+    ion-list {
+      background: transparent;
+
+      ion-item {
+        --background: transparent;
+        --color: #fff;
+        --border-color: #fff;
+
+        ion-label {
+          min-width: 3em;
+
+          span {
+            display: inline-block;
+            vertical-align: middle;
+          }
+
+          ion-badge {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 10px;
+            margin-left: 5px;
+          }
+
+          ion-icon {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 5px;
+          }
+
+          p {
+            font-size: 13px;
+          }
+        }
+
+        ion-note {
+          font-size: 13px;
+          --color: #fff;
+          text-align: right;
+
+          p {
+            margin: 0.5em 0;
+
+            &::ng-deep {
+              span {
+                &.num {
+                  text-shadow: 1px 0 1px #ffc409, -1px 0 1px #ffc409, 0 1px 1px #ffc409, 0 -1px 1px #ffc409;
+                }
+
+                &.winner {
+                  text-shadow: 1px 0 1px #fff, -1px 0 1px #fff, 0 1px 1px #fff, 0 -1px 1px #fff;
+                  color: var(--ion-color-success, #2dd36f);
+                }
+
+                &.loser {
+                  text-shadow: 1px 0 1px #fff, -1px 0 1px #fff, 0 1px 1px #fff, 0 -1px 1px #fff;
+                  color: var(--ion-color-danger, #eb445a);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ;
+  }
+
+  ion-content {
+    ion-list {
+      margin-top: 5px;
+
+      &:first-child {
+        margin-top: 10px;
+      }
+
+      ion-list-header {
+        font-size: 15px;
+        position: relative;
+
+        ion-icon {
+          right: 15px;
+          position: absolute;
+          font-size: 22px;
+        }
+      }
+
+      ion-item {
+        ion-label {
+          span {
+            display: inline-block;
+            vertical-align: middle;
+          }
+
+          ion-badge {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 10px;
+            margin-left: 5px;
+          }
+
+          p {
+            font-size: 13px;
+          }
+        }
+
+        ion-note {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

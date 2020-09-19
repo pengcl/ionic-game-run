@@ -25,7 +25,7 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
-
+@import "scss/ion-header";
 @import "scss/weui-uploader";
 @import "scss/weui-actionSheet";
 @import "scss/mat-form-field";
@@ -37,10 +37,6 @@ html {
 body {
   background: transparent;
   font-size: 12px;
-}
-
-ion-back-button {
-  --color: inherit;
 }
 
 ion-content {

@@ -1,33 +1,73 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>跑得快结算器</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/index" [text]="'返回'"></ion-back-button>
+        </ion-buttons>
+        <ion-title>对局信息</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="delete()">
+                <ion-icon name="trash-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+    <ion-toolbar>
+        <ion-list *ngIf="game">
+            <ion-item>
+                <ion-label>金额</ion-label>
+                <ion-note>{{game.price | currency : '￥'}}</ion-note>
+            </ion-item>
+            <ion-item>
+                <ion-label>人员</ion-label>
+                <ion-note>
+                    <p *ngFor="let gamer of game.gamers | players" [innerHTML]="matches | amount : gamer"></p>
+                </ion-note>
+            </ion-item>
+            <ion-item lines="none">
+                <ion-label><span>买码</span><ion-icon (click)="presentPeoplesModal({label:'买码',name:'peripheries',value:''})" name="add-outline"></ion-icon></ion-label>
+                <ion-note>
+                    <p *ngFor="let gamer of game.gamers | peripheries;let i = index" [innerHTML]="matches | amount : gamer"></p>
+                </ion-note>
+            </ion-item>
+        </ion-list>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list>
-    <ion-list-header>
-      对局信息
-    </ion-list-header>
-  </ion-list>
+    <ion-list *ngFor="let match of matches;let i = index">
+        <ion-list-header>
+            第{{match.no + 1}}局
+            <ion-icon *ngIf="match.no === game.no - 1" (click)="removeRecord(match)" name="close-outline"></ion-icon>
+        </ion-list-header>
+        <ion-item [disabled]="item.surplus === null" *ngFor="let item of match.list;let i = index" [lines]="i === match.list.length - 1 ? 'none' : ''"
+                  detail>
+            <ion-label>
+                <h2>
+                    <span>{{item.gamer.name}}</span>
+                    <ion-badge
+                            [color]="item.gamer.type ? 'primary' : 'warning'">{{item.gamer.type ? '玩家' : '买码'}}</ion-badge>
+                    <ion-badge *ngIf="item.surplus === 16" [color]="'dark'">满手</ion-badge>
+                    <ion-badge *ngIf="item.surplus !== null"
+                            [color]="item.surplus === 0 ? 'success' : 'danger'">{{item.surplus === 0 ? '胜' : '负'}}</ion-badge>
+                    <ion-badge *ngIf="item.gamer.periphery || item.gamer.player" [color]="item.gamer.type ? 'warning' : 'primary'">{{item.gamer.type ? item.gamer.periphery : item.gamer.player}}</ion-badge>
+                </h2>
+                <p *ngIf="item.surplus !== null">{{'剩牌：' + item.surplus + '，炸弹：' + item.bombs}}</p>
+                <p *ngIf="item.surplus === null">未买码</p>
+            </ion-label>
+            <ion-note>{{(item.amount | currency : '￥')}}</ion-note>
+        </ion-item>
+    </ion-list>
 </ion-content>
-<ion-footer>
-  <ion-toolbar>
-    <ion-grid class="ion-no-padding">
-      <ion-row>
-        <ion-col>
-          <ion-button expand="full">开始新的对局</ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button expand="full" color="secondary">添加记录</ion-button>
-        </ion-col>
-        <!--<ion-col>
-          <ion-button expand="full" color="secondary">结束</ion-button>
-        </ion-col>-->
-      </ion-row>
-    </ion-grid>
-  </ion-toolbar>
+<ion-footer *ngIf="game">
+    <ion-toolbar>
+        <ion-grid class="ion-no-padding">
+            <ion-row>
+                <ion-col>
+                    <ion-button [disabled]="game.finished || user.id !== game.owner.id" (click)="requestFinish()" expand="full">{{game.finished ? '已结束' : '结束游戏'}}</ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button [disabled]="game.finished || user.id !== game.owner.id" (click)="presentRecordModal()" expand="full" color="secondary">添加记录</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
 </ion-footer>

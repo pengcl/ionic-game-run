@@ -2,7 +2,7 @@
     <form [formGroup]="form" class="auth-form">
         <div class="app-info">
             <div class="app-logo">
-                <img src="/assets/logo_text.png">
+                <img src="/assets/logo_text_white.png">
             </div>
         </div>
         <mat-form-field appearance="outline">
@@ -22,7 +22,7 @@
             </mat-error>
         </mat-form-field>
         <button (click)="login()" [disabled]="form.invalid" type="button" mat-raised-button color="primary">登录</button>
-        <p class="actions">
+        <!--<p class="actions">
             <a class="forgot" routerLink="/pages/auth/forgot" href="javascript:;">忘记密码?</a>
             <a style="margin: 0 7px;" class="forgot" href="javascript:;">|</a>
             <a class="forgot" routerLink="/pages/auth/type" href="javascript:;">注册</a>
@@ -30,6 +30,6 @@
         <p class="social-login">
             <span><img src="/assets/wx.png"></span>
             微信快捷登录
-        </p>
+        </p>-->
     </form>
 </ion-content>

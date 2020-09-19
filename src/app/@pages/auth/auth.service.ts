@@ -16,11 +16,11 @@ export class AuthService {
   }
 
   login(body): Observable<any> {
-    return this.http.post('/api/auth/local', body);
+    return this.http.post(this.PREFIX_URL + '/auth/local', body);
   }
 
   register(body): Observable<any> {
-    return this.http.post('/api/auth/local/register', body);
+    return this.http.post(this.PREFIX_URL + '/auth/local/register', body);
   }
 
   logout() {

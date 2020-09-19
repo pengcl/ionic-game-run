@@ -7,13 +7,15 @@ import {IonicModule} from '@ionic/angular';
 import {IndexPageRoutingModule} from './index-routing.module';
 
 import {IndexPage} from './index.page';
+import {ThemeModule} from '../../@theme/theme.module';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         IonicModule,
-        IndexPageRoutingModule
+        IndexPageRoutingModule,
+        ThemeModule
     ],
     declarations: [IndexPage]
 })

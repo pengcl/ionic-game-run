@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http';
 import {RouteReuseStrategy} from '@angular/router';
 
 import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
@@ -18,10 +19,14 @@ import {AppRoutingModule} from './app-routing.module';
     entryComponents: [],
     imports: [
         BrowserModule,
+        HttpClientModule,
         BrowserAnimationsModule,
-        IonicModule.forRoot(),
         CoreModule.forRoot(),
         ThemeModule.forRoot(),
+        IonicModule.forRoot({
+            mode: 'ios',
+            hardwareBackButton: false
+        }),
         AppRoutingModule
     ],
     providers: [

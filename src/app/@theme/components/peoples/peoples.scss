@@ -1,0 +1,14 @@
+ion-list-header {
+  display: flex;
+  padding-right: 15px;
+  span {
+    flex: 1;
+  }
+  ion-icon {
+    line-height: 30px;
+    font-size: 30px;
+  }
+}
+ion-input {
+  text-align: right;
+}

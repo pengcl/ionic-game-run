@@ -1,7 +1,8 @@
 {
   "name": "ionic-game-run",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

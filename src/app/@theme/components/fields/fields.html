@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>请填写{{''}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <form [formGroup]="form">
+    <ion-list>
+      <ion-item *ngFor="let field of fields">
+        <ion-label>{{field.label}}</ion-label>
+        <ion-input [formControlName]="field.name"></ion-input>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="close()" color="primary" expand="full">确定</ion-button>
+  </ion-toolbar>
+</ion-footer>

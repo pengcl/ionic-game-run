@@ -10,6 +10,7 @@ const routes: Routes = [
     },
     {
         path: 'index',
+        canActivate: [AuthGuard],
         loadChildren: () => import('./@pages/index/index.module').then(m => m.IndexPageModule)
     },
     {

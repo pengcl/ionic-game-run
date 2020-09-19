@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>添加人员</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()"><ion-icon name="close-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <form [formGroup]="form">
+    <ion-list>
+      <ion-list-header>
+        <span>添加{{field.label}}</span>
+        <ion-icon *ngIf="field.name !== 'players'" (click)="addPeople()" name="add-circle-outline"></ion-icon>
+      </ion-list-header>
+      <ion-item *ngFor="let people of peoples;let i = index">
+        <ion-label>{{people.label}}</ion-label>
+        <ion-input [formControlName]="people.name" placeholder="请输入姓名"></ion-input>
+        <ion-note *ngIf="peoples.length > 1 && field.name !== 'players'"><ion-icon (click)="removePeople(i)" name="remove-circle-outline"></ion-icon></ion-note>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="submit()" color="primary" expand="full">确定</ion-button>
+  </ion-toolbar>
+</ion-footer>

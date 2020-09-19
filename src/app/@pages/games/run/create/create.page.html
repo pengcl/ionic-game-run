@@ -12,27 +12,17 @@
         <ion-list-header>
             对局信息
         </ion-list-header>
-        <ion-item (click)="pickerShow()" detail>
+        <ion-item (click)="pickerShow({type:'input',label:'金额',name:'price',value:form.get('price').value})" detail>
             <ion-label>金额</ion-label>
             <ion-note>{{form.get('price').valid ? (form.get('price').value | currency:'￥') : '请选择对局金额'}}</ion-note>
         </ion-item>
-    </ion-list>
-    <ion-list>
-        <ion-list-header>
-            人员
-        </ion-list-header>
-        <ion-item (click)="pickerShow()" detail>
-            <ion-label>金额</ion-label>
-            <ion-note>{{form.get('price').valid ? (form.get('price').value | currency:'￥') : '请选择对局金额'}}</ion-note>
+        <ion-item (click)="presentPeoplesModal({label:'人员',name:'players',value:form.get('players').value})" detail>
+            <ion-label>人员</ion-label>
+            <ion-note>{{form.get('players').valid ? form.get('players').value : '请输入对局玩家'}}</ion-note>
         </ion-item>
-    </ion-list>
-    <ion-list>
-        <ion-list-header>
-            买码
-        </ion-list-header>
-        <ion-item (click)="pickerShow()" detail>
-            <ion-label>金额</ion-label>
-            <ion-note>{{form.get('price').valid ? (form.get('price').value | currency:'￥') : '请选择对局金额'}}</ion-note>
+        <ion-item (click)="presentPeoplesModal({label:'买码',name:'peripheries',value:form.get('peripheries').value})" detail lines="none">
+            <ion-label>买码</ion-label>
+            <ion-note>{{form.get('peripheries').value && form.get('peripheries').value.length > 0 ? form.get('peripheries').value : '请输入买码玩家'}}</ion-note>
         </ion-item>
     </ion-list>
 </ion-content>
@@ -41,7 +31,7 @@
         <ion-grid class="ion-no-padding">
             <ion-row>
                 <ion-col>
-                    <ion-button expand="full">开始</ion-button>
+                    <ion-button (click)="submit()" [disabled]="this.form.invalid" expand="full">开始</ion-button>
                 </ion-col>
             </ion-row>
         </ion-grid>

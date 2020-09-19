@@ -8,8 +8,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <app-empty *ngIf="games && games.length < 1"></app-empty>
+  <ion-list *ngIf="games && games.length > 0">
+    <ion-item [routerLink]="['/run/item',game.id]" *ngFor="let game of games" detail>
+      <ion-label>{{(game.finished ? '已完成的游戏：' : '进行中的游戏：') + game.id}}</ion-label>
+      <ion-note></ion-note>
+    </ion-item>
+  </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="new()" expand="full">开始新的游戏</ion-button>
+  </ion-toolbar>
+</ion-footer>

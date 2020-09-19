@@ -1,7 +1,13 @@
 import {
-  RepairDatePipe,
+    RepairDatePipe,
+    PlayersPipe,
+    PeripheriesPipe,
+    AmountPipe
 } from './pipes.pipe';
 
 export const PIPES_DECLARATIONS = [
-  RepairDatePipe,
+    RepairDatePipe,
+    PlayersPipe,
+    PeripheriesPipe,
+    AmountPipe
 ];

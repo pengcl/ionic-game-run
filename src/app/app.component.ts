@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
     public appPages = [
         {
             title: '历史记录',
-            url: '/run/list',
+            url: '/index',
             icon: 'mail'
         },
         {
